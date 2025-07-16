@@ -31,7 +31,7 @@ const Nav = () => {
                         <Link to={'/'} className='text-3xl font-bold uppercase'>Redux</Link>
                         <ul className='flex gap-x-5'>
                             <li><Link to={'/'} className='font-medium text-base duration-300 hover:text-gray-100'>Home</Link></li>
-                            <li><Link to={'/card'} className='font-medium text-base duration-300 hover:text-gray-100'>Cart</Link></li>
+                            <li><Link to={'/cart'} className='font-medium text-base duration-300 hover:text-gray-100'>Cart</Link></li>
                             <li><Link to={'/counter'} className='font-medium text-base duration-300 hover:text-gray-100'>Counter</Link></li>
                         </ul>
                         <button onClick={() => setcartBox(!cartBox)} className='cursor-pointer text-2xl'> <FaCartPlus /></button>
