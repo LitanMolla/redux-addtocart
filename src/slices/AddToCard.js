@@ -27,10 +27,17 @@ export const AddToCard = createSlice({
         iddata.quantity-=1 
       }
     },
+    cartRemove: (state,action) => {
+      state.cartItems.map((item,index)=>{
+        if (item.id===action.payload.id) {
+          state.cartItems.splice(index,1)
+        }
+      })
+    },
   }
 })
 
 
-export const { addToardS,quantityPlusF,quantityMinuF } = AddToCard.actions
+export const { addToardS,quantityPlusF,quantityMinuF,cartRemove } = AddToCard.actions
 
 export default AddToCard.reducer
