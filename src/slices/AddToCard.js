@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const AddToCard = createSlice({
   name: 'cart',
   initialState: {
-    cartItems: []
+    cartItems: localStorage.getItem('cartLocal') ? JSON.parse(localStorage.getItem('cartLocal')) : []
   },
   reducers: {
     addToardS: (state,action) => {
@@ -14,18 +14,21 @@ export const AddToCard = createSlice({
       else{
         state.cartItems.push({...action.payload,quantity:1}) // jodi new id ager datay khuje na pawa jay full data push hobe
       }
+      localStorage.setItem('cartLocal',JSON.stringify(state.cartItems))
     },
     quantityPlusF: (state,action) => {
       const iddata = state.cartItems.find((item)=>item.id===action.payload.id) 
       if (iddata) {
         iddata.quantity+=1 
       }
+      localStorage.setItem('cartLocal',JSON.stringify(state.cartItems))
     },
     quantityMinuF: (state,action) => {
       const iddata = state.cartItems.find((item)=>item.id===action.payload.id) 
       if (iddata.quantity>1) {
         iddata.quantity-=1 
       }
+      localStorage.setItem('cartLocal',JSON.stringify(state.cartItems))
     },
     cartRemove: (state,action) => {
       state.cartItems.map((item,index)=>{
@@ -33,6 +36,7 @@ export const AddToCard = createSlice({
           state.cartItems.splice(index,1)
         }
       })
+      localStorage.setItem('cartLocal',JSON.stringify(state.cartItems))
     },
   }
 })
