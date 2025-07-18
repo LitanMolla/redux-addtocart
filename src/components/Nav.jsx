@@ -38,7 +38,15 @@ const Nav = () => {
                             <li><Link to={'/cart'} className='font-medium text-base duration-300 hover:text-gray-100'>Cart</Link></li>
                             <li><Link to={'/counter'} className='font-medium text-base duration-300 hover:text-gray-100'>Counter</Link></li>
                         </ul>
-                        <button onClick={() => setcartBox(!cartBox)} className='cursor-pointer text-2xl relative'> <FaCartPlus /> <span className='bg-yellow-500 text-green-950 text-xs h-6 min-w-6 rounded-full flex  justify-center items-center absolute -top-4 -right-4'>{cartData.length}</span> </button>
+                        <button onClick={() => setcartBox(!cartBox)} className='cursor-pointer text-2xl relative'> <FaCartPlus />
+                        {
+                            cartData.length>0
+                            ?
+                            <span className='bg-yellow-500 text-green-950 text-xs h-6 min-w-6 rounded-full flex  justify-center items-center absolute -top-4 -right-4'>{cartData.length}</span>
+                            :
+                            ''
+                        }
+                        </button>
                     </div>
                 </Container>
             </div>
