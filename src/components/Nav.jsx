@@ -55,7 +55,7 @@ const Nav = () => {
                 cartBox && <div className="fixed top-19 right-0 w-full md:w-1/3 bg-green-950/95 h-screen text-gray-100 p-5 md:p-10 shadow shadow-green-800 backdrop-blur-xl overflow-auto">
                     <div className="mb-5 justify-between flex items-center">
                         <h4 className='text-xl font-semibold'>Shopping Cart</h4>
-                    <h4 className='text-xl font-semibold'>Total: ${totalPrice} </h4>
+                    <h4 className='text-xl font-semibold'>Total: ${totalPrice.toFixed(2)} </h4>
                     </div>
                     {
                         cartData.map((item) => (
